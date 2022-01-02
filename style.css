@@ -1,0 +1,135 @@
+/* Main settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #e4ff00;
+  font-family: sans-serif;
+  background-color: rgb(253, 223, 183);
+}
+
+/* Card in the middel */
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.card-container {
+  margin-top: 15vh;
+  perspective: 50rem;
+  max-width: 25rem;
+}
+/* Card settings */
+.card {
+  position: relative;
+  min-height: 40rem;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: #053731;
+  box-shadow: 0.5rem 0.5rem 0.5rem black;
+
+  /* Neigung der card mit der Mouse */
+  transform: rotateY(calc(calc(var(--mouse-y, 0.5) - 0.5) * 40deg))
+    rotateX(calc(calc(var(--mouse-x, 0.5) - 0.5) * -40deg));
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+/* Background img Card */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(src/aston__martin__logo.webp);
+  background-position: center center;
+  filter: brightness(60%);
+  border-radius: 1rem;
+}
+
+.card:hover {
+  transition: transform 0s linear;
+}
+
+@media only screen and (max-width: 425px) {
+  .card::after {
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 8.75rem;
+  }
+}
+/* Card img Settings */
+img {
+  position: relative;
+  z-index: 5;
+  border-radius: 1rem;
+  width: 100%;
+  transform: translateZ(40px);
+}
+
+/* Settings namme 3d effect */
+.driver-name {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  transform: translateZ(60px);
+  text-shadow:
+     
+  /* This set has more blur distance to create glowing effect */ 1px -1px
+      10px rgb(0, 0, 0),
+    0px -1px 10px rgba(0, 0, 0, 0), -1px -1px 10px rgba(0, 0, 0, 0),
+    0px -2px 3px rgb(0, 0, 0), -1px -2px 3px #fff, -2px -2px 3px #fff,
+    /* This set has darken color to create depth */ -1px -3px 2px #ddd,
+    -2px -3px 2px #ddd, -3px -3px 2px #ddd, -2px -4px 2px #fff,
+    -3px -4px 2px #fff, -4px -4px 2px #fff, -3px -5px 1px #fff,
+    -4px -5px 1px #fff, -5px -5px 1px #fff;
+}
+/* P tag name settings */
+.driver-name p:first-of-type {
+  font-size: 1.25rem;
+  transform: translateZ(25px);
+}
+/* p tag driver nummber settings */
+.driver-name h2:first-of-type {
+  font-size: 1.75rem;
+  transform: translateZ(25px);
+}
+
+/* Driver infos */
+.content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transform: translateZ(45px);
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.driver-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  transition: 0.5s ease-in-out;
+}
+
+/* Driver infos hover effect */
+#age:hover,
+#nation:hover,
+#starts:hover,
+#team:hover,
+#wins:hover {
+  font-weight: 700;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  transform: translateZ(50px);
+  color: rgb(255, 255, 255);
+}
