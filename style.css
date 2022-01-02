@@ -9,6 +9,7 @@ body {
   color: #e4ff00;
   font-family: sans-serif;
   background-color: rgb(253, 223, 183);
+  overflow: hidden;
 }
 
 /* Card in the middel */
